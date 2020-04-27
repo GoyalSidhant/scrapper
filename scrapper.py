@@ -14,15 +14,12 @@ from PIL import Image
 print("--------------Start-----------------")
 
 def get_captcha_demo(location, size):
-    im = Image.open('captcha.png') # uses PIL library to open image in memory
-
+    im = Image.open('captcha.png') 
     left = location['x']
     top = location['y']
     right = location['x'] + size['width']
     bottom = location['y'] + size['height']
-
-
-    im = im.crop((left, top, right, bottom)) # defines crop points
+    im = im.crop((left, top, right, bottom)) 
     im.save('captcha.png')
     captcha_text = image_to_string(Image.open('captcha.png'))
     print(captcha_text)
